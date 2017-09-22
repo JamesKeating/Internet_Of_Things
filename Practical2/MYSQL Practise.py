@@ -1,12 +1,15 @@
 import MySQLdb
 
-db = MySQLdb.connect("localhost", "root", "1234", "world")
+db = MySQLdb.connect(host="localhost",    # your host, usually localhost
+                     user="james",         # your username
+                     passwd="1234",  # your password
+                     db="us_states")
 
 c = db.cursor()
-c.execute("select * from country")
+c.execute("select * from states")
 
 row1 = c.fetchone()
 
-print(row1[3])
+print(row1[2])
 
 db.close()
